@@ -4,3 +4,4 @@ venv
 *.log
 *.ini
 *.pyc
+*sqlite3
