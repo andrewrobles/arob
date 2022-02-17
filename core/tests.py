@@ -8,9 +8,10 @@ import configparser
 
 from bs4 import BeautifulSoup
 
-class TestLogin(unittest.TestCase):
+class TestSendMessage(unittest.TestCase):
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         config = configparser.ConfigParser()
         config.read('config.ini')
 
@@ -20,7 +21,8 @@ class TestLogin(unittest.TestCase):
         self.browser = webdriver.Firefox()
         self.bot = InstagramBot(self.browser) 
 
-    def tearDown(self):
+    @classmethod
+    def tearDownClass(self):
         self.browser.close()      
 
     def test_is_logged_in(self):
@@ -30,6 +32,17 @@ class TestLogin(unittest.TestCase):
         soup = BeautifulSoup(html, 'html.parser')
 
         actual = len(soup.findAll('html', {'class':'logged-in'}))
+        expected = 1
+
+        self.assertEqual(actual, expected)
+
+    def test_search_username(self):
+        self.bot.get_name('andrewroblesdev')
+    
+        html = self.browser.page_source
+        soup = BeautifulSoup(html, 'html.parser')
+
+        actual = len(soup.findAll(text='Andrew Robles'))
         expected = 1
 
         self.assertEqual(actual, expected)
