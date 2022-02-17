@@ -7,8 +7,10 @@ from core import InstagramBot
 import configparser
 
 from bs4 import BeautifulSoup
+from datetime import datetime
+    
 
-class TestSendMessage(unittest.TestCase):
+class TestMessaging(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -21,28 +23,32 @@ class TestSendMessage(unittest.TestCase):
         self.browser = webdriver.Firefox()
         self.bot = InstagramBot(self.browser) 
 
-    @classmethod
-    def tearDownClass(self):
-        self.browser.close()      
-
-    def test_is_logged_in(self):
         self.bot.login(self.username, self.password)
 
-        html = self.browser.page_source
-        soup = BeautifulSoup(html, 'html.parser')
-
-        actual = len(soup.findAll('html', {'class':'logged-in'}))
-        expected = 1
-
-        self.assertEqual(actual, expected)
+    @classmethod
+    def tearDownClass(self):
+        # self.browser.close() 
+        pass     
 
     def test_search_username(self):
-        self.bot.get_name('andrewroblesdev')
+        self.bot.search_username('andrewroblesdev')
     
         html = self.browser.page_source
         soup = BeautifulSoup(html, 'html.parser')
 
         actual = len(soup.findAll(text='Andrew Robles'))
+        expected = 1
+
+        self.assertEqual(actual, expected)
+
+    def test_send_message(self):
+        message=datetime.now()
+        self.bot.send_message(username='andrewroblesdev', message=message)
+
+        html = self.browser.page_source
+        soup = BeautifulSoup(html, 'html.parser')
+
+        actual = len(soup.findAll(text=message))
         expected = 1
 
         self.assertEqual(actual, expected)
