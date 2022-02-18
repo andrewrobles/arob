@@ -3,7 +3,7 @@ import unittest
 from selenium import webdriver
 from time import sleep
 
-from core import InstagramBot
+from utils import InstagramBot
 import configparser
 
 from bs4 import BeautifulSoup
@@ -30,19 +30,8 @@ class TestMessaging(unittest.TestCase):
         # self.browser.close() 
         pass     
 
-    def test_search_username(self):
-        self.bot.search_username('andrewroblesdev')
-    
-        html = self.browser.page_source
-        soup = BeautifulSoup(html, 'html.parser')
-
-        actual = len(soup.findAll(text='Andrew Robles'))
-        expected = 1
-
-        self.assertEqual(actual, expected)
-
     def test_send_message(self):
-        message=datetime.now()
+        message=datetime.now().__str__()
         self.bot.send_message(username='andrewroblesdev', message=message)
 
         html = self.browser.page_source
@@ -52,6 +41,12 @@ class TestMessaging(unittest.TestCase):
         expected = 1
 
         self.assertEqual(actual, expected)
+
+"""
+h2 contains Turn on Notifications
+button contains Turn On 
+button contains Not Now
+"""
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')

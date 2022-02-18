@@ -32,11 +32,19 @@ class InstagramBot:
         sleep(1)
 
     def send_message(self, username, message):
-        print('SEND_MESSAGE()')
+        if len(self._find_elements_by_text('Turn on Notifications'))>0:
+            turn_on_button=self._find_element_by_text('Not Now')
+            turn_on_button.click()
+            sleep(1)
+
         self.search_username(username)
 
+        if len(self._find_elements_by_text('Turn on Notifications'))>0:
+            turn_on_button=self._find_element_by_text('Not Now')
+            turn_on_button.click()
+            sleep(1)
+
         elements = self._find_elements_by_text(username)
-        ic(elements)
         search_result = elements[-1]
         search_result.click()
         sleep(1)
@@ -49,7 +57,8 @@ class InstagramBot:
         message_input.send_keys(message)
         message_input.send_keys(Keys.ENTER)
         sleep(1)    
-        print('============================')   
+        print('============================')
+       
 
     def _find_element_by_text(self, text):
         return self._browser.find_element_by_xpath("//*[text()='{}']".format(text)) 
