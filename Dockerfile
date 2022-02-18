@@ -6,3 +6,4 @@ WORKDIR /code
 COPY server/requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY server /code/
+WORKDIR /code/server
