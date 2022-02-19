@@ -42,6 +42,7 @@ class TestMessaging(unittest.TestCase):
 
         self.assertTextInPage('Top posts')
 
+
     def assertTextInPage(self, text):
         html = self.browser.page_source
         soup = BeautifulSoup(html, 'html.parser')

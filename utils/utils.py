@@ -58,22 +58,9 @@ class InstagramBot:
         sleep(1)    
 
     def search_hashtag(self, hashtag):
-        if len(self._find_elements_by_text('Not Now'))>0:
-            turn_on_button=self._find_element_by_text('Not Now')
-            turn_on_button.click()
-            sleep(3)
-
-        if len(self._find_elements_by_text('Not Now'))>0:
-            turn_on_button=self._find_element_by_text('Not Now')
-            turn_on_button.click()
-            sleep(1)
-
-        search_input = self._find_element_by_text('Search')
-        search_input = self._browser.find_element_by_xpath('//input[@placeholder="Search"]')
-        search_input.click()
-        search_input = self._browser.find_element_by_xpath('//input[@placeholder="Search"]')
-        search_input.send_keys(Keys.ENTER)
+        self._browser.get('https://www.instagram.com/explore/tags/{}/'.format(hashtag[1:]))
         sleep(1)
+
 
     def _find_element_by_text(self, text):
         return self._browser.find_element_by_xpath("//*[text()='{}']".format(text)) 
