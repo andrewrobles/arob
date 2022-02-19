@@ -1,4 +1,4 @@
-### How to set up YouBot for local development
+### How to set up Instabot for local development
 - Download Firefox webdriver https://github.com/mozilla/geckodriver/releases 
 - Unzip `geckodriver` to root directory
 - Add driver to path `export PATH=$PATH:/YourDirectory`
