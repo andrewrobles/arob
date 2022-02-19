@@ -1,13 +1,12 @@
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-
 from icecream import ic
 
 class InstagramBot:
     def __init__(self, browser):
         self._browser = browser
-        self._browser.implicitly_wait(1)
+        self._browser.implicitly_wait(60)
         self._base_url = 'https://www.instagram.com'
         self._browser.get(self._base_url)
         sleep(1)
@@ -57,8 +56,24 @@ class InstagramBot:
         message_input.send_keys(message)
         message_input.send_keys(Keys.ENTER)
         sleep(1)    
-        print('============================')
-       
+
+    def search_hashtag(self, hashtag):
+        if len(self._find_elements_by_text('Not Now'))>0:
+            turn_on_button=self._find_element_by_text('Not Now')
+            turn_on_button.click()
+            sleep(3)
+
+        if len(self._find_elements_by_text('Not Now'))>0:
+            turn_on_button=self._find_element_by_text('Not Now')
+            turn_on_button.click()
+            sleep(1)
+
+        search_input = self._find_element_by_text('Search')
+        search_input = self._browser.find_element_by_xpath('//input[@placeholder="Search"]')
+        search_input.click()
+        search_input = self._browser.find_element_by_xpath('//input[@placeholder="Search"]')
+        search_input.send_keys(Keys.ENTER)
+        sleep(1)
 
     def _find_element_by_text(self, text):
         return self._browser.find_element_by_xpath("//*[text()='{}']".format(text)) 

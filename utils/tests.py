@@ -34,19 +34,22 @@ class TestMessaging(unittest.TestCase):
         message=datetime.now().__str__()
         self.bot.send_message(username='andrewroblesdev', message=message)
 
+        self.assertTextInPage(message)
+
+    def test_search_hashtag(self):
+        hashtag = '#computerscience'
+        self.bot.search_hashtag(hashtag=hashtag)
+
+        self.assertTextInPage('Top posts')
+
+    def assertTextInPage(self, text):
         html = self.browser.page_source
         soup = BeautifulSoup(html, 'html.parser')
 
-        actual = len(soup.findAll(text=message))
+        actual = len(soup.findAll(text=text))
         expected = 1
 
         self.assertEqual(actual, expected)
-
-"""
-h2 contains Turn on Notifications
-button contains Turn On 
-button contains Not Now
-"""
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')

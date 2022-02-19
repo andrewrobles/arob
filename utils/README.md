@@ -1,7 +1,7 @@
 ### How to set up Instabot for local development
 - Download Firefox webdriver https://github.com/mozilla/geckodriver/releases 
 - Unzip `geckodriver` to root directory
-- Add driver to path `export PATH=$PATH:/YourDirectory`
+- Add driver to path `export PATH=$PATH:$(pwd)`
 - Rename `config.ini.sample` to `config.sample`
 - Replace `USERNAMEGOESHERE` and `PASSWORDGOESHERE` in `config.sample`
 - Create virtual environment `python3 -m venv venv`
