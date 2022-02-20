@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from icecream import ic
 
+from bs4 import BeautifulSoup
+
 class InstagramBot:
     def __init__(self, browser):
         self._browser = browser
@@ -61,6 +63,13 @@ class InstagramBot:
         self._browser.get('https://www.instagram.com/explore/tags/{}/'.format(hashtag[1:]))
         sleep(1)
 
+    def get_hrefs(self, hashtag):
+        self.search_hashtag(hashtag)
+
+        html = self._browser.page_source
+        soup = BeautifulSoup(html, 'html.parser')
+
+        return [a['href'] for a in soup.find_all('a')]
 
     def _find_element_by_text(self, text):
         return self._browser.find_element_by_xpath("//*[text()='{}']".format(text)) 

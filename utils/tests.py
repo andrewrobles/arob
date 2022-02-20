@@ -42,6 +42,13 @@ class TestMessaging(unittest.TestCase):
 
         self.assertTextInPage('Top posts')
 
+    def test_get_hrefs(self):
+        hashtag = '#computerscience'
+
+        actual = self.bot.get_hrefs(hashtag)[0][:3]
+        expected = '/p/'
+
+        self.assertEqual(actual, expected)
 
     def assertTextInPage(self, text):
         html = self.browser.page_source
