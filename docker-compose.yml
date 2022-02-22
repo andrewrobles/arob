@@ -1,18 +1,17 @@
 version: "3.3"
    
 services:
-  # server:
-  #   build: 
-  #     context: ./server
-  #   command: python manage.py runserver 0.0.0.0:8000
-  #   volumes:
-  #     - ./server:/code
-  #   ports:
-  #     - "8000:8000"
+  server:
+    build: 
+      context: ./server
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./server:/code
+    ports:
+      - "8000:8000"
   client:
     build:
       context: ./client
-      dockerfile: Dockerfile
     command: npm --prefix /app/ start
     volumes:
       - ./client:/app
