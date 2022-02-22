@@ -1,1 +1,1 @@
-sudo docker-compose run web python manage.py test
+sudo docker-compose run server python manage.py test
