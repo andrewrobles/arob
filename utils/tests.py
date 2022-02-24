@@ -50,6 +50,14 @@ class TestMessaging(unittest.TestCase):
 
         self.assertEqual(actual, expected)
 
+    def test_get_usernames_by_hashtag(self):
+        hashtag = '#computerscience'
+
+        actual = self.bot.get_usernames_by_hashtag(hashtag)
+        expected = None
+
+        self.assertEqual(actual, expected)
+
     def assertTextInPage(self, text):
         html = self.browser.page_source
         soup = BeautifulSoup(html, 'html.parser')
