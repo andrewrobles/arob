@@ -25,8 +25,11 @@ function App() {
   }
 
   return (
-    <div>{state.message}</div>
-    // <p>Hello world</p>
+    <span>
+      <h1 className="text-3xl font-bold underline">
+        {state.message}
+      </h1>
+    </span>
   );
 }
 
