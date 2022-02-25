@@ -78,7 +78,11 @@ class InstagramBot:
         likes_href = '{}{}'.format(first_href, 'liked_by/')
         likes_tag = self._browser.find_element_by_xpath('//a[@href="{}"]'.format(likes_href))
         likes_tag.click()
-        sleep(5)
+        sleep(1)
+
+        soup = BeautifulSoup(self._browser.page_source, 'html.parser')
+        return [element['href'][1][-1] for element in soup.find_all('a', {'class': '_2dbep qNELH kIKUG'})] 
+
 
     def _find_element_by_text(self, text):
         return self._browser.find_element_by_xpath("//*[text()='{}']".format(text)) 
