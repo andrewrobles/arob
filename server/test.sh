@@ -1,0 +1,1 @@
+sudo docker exec -it instabot_server_1 python manage.py test $1

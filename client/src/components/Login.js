@@ -4,14 +4,14 @@ export const Login = () => {
     return <div className="w-full max-w-md font-['Inter']">
     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <div className="mb-3">
-        <label className="block text-gray-500 text-md" for="username">
+        <label className="block text-gray-700 text-md" for="username">
           Username
         </label>
         <input className="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text"/>
         <p className="text-gray-400 text-sm">Instagram username, phone number or email address</p>
       </div>
       <div className="mb-5">
-        <label className="block text-gray-500 text-md" for="password">
+        <label className="block text-gray-700 text-md" for="password">
           Password
         </label>
         <input className="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password"/>
