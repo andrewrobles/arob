@@ -1,5 +1,6 @@
 from django.test import TestCase
 from rest_framework.test import APIClient
+from django.contrib.auth.models import User
 
 class HelloWorldTestCase(TestCase):
     def test_get_hello_world(self):
@@ -11,12 +12,20 @@ class HelloWorldTestCase(TestCase):
 
         
 class LoginTestCase(TestCase):
-    def test_login(self):
+    def test_incorrect_login(self):
         factory = APIClient()
-        body = {
-            'username': 'username',
-            'password': 'password'
-        }
+
+        body = {'username': 'abcde', 'password': '1234'}
         response = factory.post('/api/login/', body, format='json').data
-        print('response: {}'.format(response))
+
+        self.assertFalse('token' in response)
+
+    def test_correct_login(self):
+        factory = APIClient()
+
+        user = User.objects.create_user(username='abcde', password='1234')
+        body = {'username': 'abcde', 'password': '1234'}
+        response = factory.post('/api/login/', body, format='json').data
+
         self.assertTrue('token' in response)
+

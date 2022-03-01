@@ -103,8 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = ['api.backends.CustomBackend']
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
