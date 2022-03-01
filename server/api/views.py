@@ -7,3 +7,9 @@ from django.contrib.auth.models import User
 @api_view(['GET'])
 def helloworld(request):
     return Response({'message': 'Hello World!'})
+
+@api_view(['POST'])
+def sign_up(request):
+    user = User.objects.create_user(
+        username=request.data['username'], password=request.data['password'])
+    return Response()

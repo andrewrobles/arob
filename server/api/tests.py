@@ -11,21 +11,23 @@ class HelloWorldTestCase(TestCase):
         self.assertEqual(actual, expected)
 
         
-class LoginTestCase(TestCase):
+class AuthTestCase(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+        self.credentials = {'username': 'abcde', 'password': '1234'}
+
     def test_incorrect_login(self):
-        factory = APIClient()
-
-        body = {'username': 'abcde', 'password': '1234'}
-        response = factory.post('/api/login/', body, format='json').data
-
-        self.assertFalse('token' in response)
+        response = self.client.post('/api/login/', self.credentials, format='json')
+        self.assertFalse('token' in response.data)
 
     def test_correct_login(self):
-        factory = APIClient()
+        user = User.objects.create_user(**self.credentials)
+        response = self.client.post('/api/login/', self.credentials, format='json')
 
-        user = User.objects.create_user(username='abcde', password='1234')
-        body = {'username': 'abcde', 'password': '1234'}
-        response = factory.post('/api/login/', body, format='json').data
+        self.assertTrue('token' in response.data)
 
-        self.assertTrue('token' in response)
+    def test_sign_up(self):
+        self.client.post('/api/signup/', self.credentials, format='json')
+        response = self.client.post('/api/login/', self.credentials, format='json')
 
+        self.assertTrue('token' in response.data)
