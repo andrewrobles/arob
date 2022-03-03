@@ -13,3 +13,9 @@ def sign_up(request):
     user = User.objects.create_user(
         username=request.data['username'], password=request.data['password'])
     return Response()
+
+@api_view(['GET'])
+def logout(request):
+    print(request.user)
+    # request.user.auth_token.delete()
+    return Response({'token': None})

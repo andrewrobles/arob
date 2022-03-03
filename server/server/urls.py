@@ -8,5 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('helloworld/', views.helloworld, name='helloworld'),
     path('api/login/', auth_views.obtain_auth_token),
-    path('api/signup/', views.sign_up)
+    path('api/signup/', views.sign_up),
+    path('api/logout/', views.logout),
 ]

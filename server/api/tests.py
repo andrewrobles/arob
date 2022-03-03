@@ -18,16 +18,25 @@ class AuthTestCase(TestCase):
 
     def test_incorrect_login(self):
         response = self.client.post('/api/login/', self.credentials, format='json')
-        self.assertFalse('token' in response.data)
+        self.assertNotEqual(list(response.data.keys()), ['token'])
 
     def test_correct_login(self):
         user = User.objects.create_user(**self.credentials)
         response = self.client.post('/api/login/', self.credentials, format='json')
-
-        self.assertTrue('token' in response.data)
+        self.assertEqual(list(response.data.keys()), ['token'])
 
     def test_sign_up(self):
         self.client.post('/api/signup/', self.credentials, format='json')
         response = self.client.post('/api/login/', self.credentials, format='json')
+        self.assertEqual(list(response.data.keys()), ['token'])
 
-        self.assertTrue('token' in response.data)
+    def test_log_out(self):
+        self.client.post('/api/signup/', self.credentials, format='json')
+        first_token = self.client.post('/api/login/', self.credentials, format='json')
+        response = self.client.post('/api/logout/', first_token, format='json')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data, {'token': None})
+
+        second_token = self.client.post('/api/login/', self.credentials, format='json')
+        self.assertNotEqual(first_token, second_token)
+
