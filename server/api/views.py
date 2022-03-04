@@ -16,6 +16,5 @@ def sign_up(request):
 
 @api_view(['GET'])
 def logout(request):
-    print(request.user)
-    # request.user.auth_token.delete()
+    request.user.auth_token.delete()
     return Response({'token': None})

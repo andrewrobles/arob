@@ -14,7 +14,7 @@ class HelloWorldTestCase(TestCase):
 class AuthTestCase(TestCase):
     def setUp(self):
         self.client = APIClient()
-        self.credentials = {'username': 'abcde', 'password': '1234'}
+        self.credentials = {'username': 'johndoe', 'password': 'testpassword'}
 
     def test_incorrect_login(self):
         response = self.client.post('/api/login/', self.credentials, format='json')
@@ -32,11 +32,14 @@ class AuthTestCase(TestCase):
 
     def test_log_out(self):
         self.client.post('/api/signup/', self.credentials, format='json')
-        first_token = self.client.post('/api/login/', self.credentials, format='json')
-        response = self.client.post('/api/logout/', first_token, format='json')
+        first_token = self.client.post('/api/login/', self.credentials, format='json').data['token']
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + first_token)
+        response = self.client.get('/api/logout/', format='json')
+
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data, {'token': None})
 
-        second_token = self.client.post('/api/login/', self.credentials, format='json')
-        self.assertNotEqual(first_token, second_token)
+        self.client.credentials(HTTP_AUTHORIZATION='')
+        response = self.client.post('/api/login/', self.credentials, format='json')
+        self.assertNotEqual(first_token, response.data['token'])
 
