@@ -40,8 +40,8 @@ export const Login = () => {
         />
       </div>
       <div className="flex items-center justify-between">
-        <button onClick={loginButtonAction} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline" type="button">
-          Sign In
+        <button onClick={loginButtonAction} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+        Log In
         </button>
       </div>
     </form>
