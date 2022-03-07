@@ -1,21 +1,9 @@
 import {useState} from 'react'
 import '../index.css';
 
-export const Login = () => {
+export const Login = (props) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-
-  const loginButtonAction = () => {
-    fetch('http://localhost:8000/api/login/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({'username': username, 'password': password})
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-  }
 
   return <div className="font-['Inter'] w-full max-w-xs">
     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -40,7 +28,7 @@ export const Login = () => {
         />
       </div>
       <div className="flex items-center justify-between">
-        <button onClick={loginButtonAction} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+        <button onClick={() => props.buttonAction(username, password)} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
         Log In
         </button>
       </div>
