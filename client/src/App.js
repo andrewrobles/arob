@@ -31,6 +31,7 @@ function App() {
     })
     .then(response => response.json())
     .then(data => {
+      console.log(data)
       localStorage.setItem('token', data.token)
     })
     setLoggedIn(true)
@@ -39,7 +40,7 @@ function App() {
   return (
     <div>
       {loggedIn
-        ? <Button action={logoutButtonAction}/>
+        ? <Button text="Log Out" style="light" action={logoutButtonAction}/>
         : <Login buttonAction={loginButtonAction}/>
       }
     </div>
