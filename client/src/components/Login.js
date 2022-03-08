@@ -1,6 +1,8 @@
 import {useState} from 'react'
 import '../index.css';
 
+import { Button } from '../components/Button'
+
 export const Login = (props) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -28,9 +30,7 @@ export const Login = (props) => {
         />
       </div>
       <div className="flex items-center justify-between">
-        <button onClick={() => props.buttonAction(username, password)} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-        Log In
-        </button>
+        <Button onClick={() => props.buttonAction(username, password)} style="primary">Log In</Button>
       </div>
     </form>
   </div>

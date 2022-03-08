@@ -7,6 +7,6 @@ export default {
     component: Button,
 }  
 
-export const LogIn = () => <Button text="Log In" style="primary"/>
+export const LogIn = () => <Button style="primary">Log In</Button>
 
-export const LogOut = () => <Button text="Log Out" style="light"/>
+export const LogOut = () => <Button style="light">Log Out</Button>
