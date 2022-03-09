@@ -1,37 +1,37 @@
 import {useState} from 'react'
 import '../index.css';
 
-import { Button } from '../components/Button'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Login = (props) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  return <div className="font-['Inter'] w-full max-w-xs">
-    <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" for="username">
+  return <div className="container" style={{maxWidth: 400, float: 'left'}}>
+      <div className="form-group">
+        <label className="" for="username">
           Username
         </label>
         <input 
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Username"
+          className="form-control mb-2" type="text" placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
           value={username} 
         />
       </div>
-      <div className="mb-6">
-        <label className="block text-gray-700 text-sm font-bold mb-2" for="password">
+      <div className="form-group">
+        <label className="" for="password">
           Password
         </label>
         <input 
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Password"
+          className="form-control mb-3" id="password" type="password" placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
       </div>
-      <div className="flex items-center justify-between">
-        <Button onClick={() => props.buttonAction(username, password)} style="primary">Log In</Button>
-      </div>
-    </form>
+      <button 
+        onClick={() => props.buttonAction(username, password)}
+        className="btn btn-primary">
+          Log In
+      </button>
   </div>
 }

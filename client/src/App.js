@@ -40,7 +40,7 @@ function App() {
   return (
     <div>
       {loggedIn
-        ? <Button style="light" onClick={logoutButtonAction}>Log Out</Button>
+        ? <button className="btn btn-primary" onClick={logoutButtonAction}>Log Out</button>
         : <Login buttonAction={loginButtonAction}/>
       }
     </div>
