@@ -1,7 +1,5 @@
 import {useState, useEffect} from 'react'
 import { Login } from './components/Login.js'
-
-import { Button } from './components/Button.js'
  
 function App() {
   const [loggedIn, setLoggedIn] = useState(
@@ -32,9 +30,11 @@ function App() {
     .then(response => response.json())
     .then(data => {
       console.log(data)
-      localStorage.setItem('token', data.token)
+      if ("token" in data) {
+        setLoggedIn(true)
+        localStorage.setItem('token', data.token)
+      } 
     })
-    setLoggedIn(true)
   }
 
   return (

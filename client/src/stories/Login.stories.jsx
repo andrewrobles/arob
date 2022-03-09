@@ -7,8 +7,6 @@ export default {
     component: Login,
 }  
 
-const Template = (args) => <Login {...args}/>
+export const Default = () => <Login />
 
-export const Default = Template.bind({
-    args: {}
-})
+export const Error = () => <Login errorMessage="Incorrect username or password."/>
