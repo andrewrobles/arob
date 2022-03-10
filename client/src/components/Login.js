@@ -13,7 +13,7 @@ export const Login = (props) => {
           Username
         </label>
         <input 
-          className={`form-control mb-2 is-invalid`} type="text" placeholder="Username"
+          className={`form-control mb-2`} type="text" placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
           value={username} 
         />
@@ -23,11 +23,10 @@ export const Login = (props) => {
           Password
         </label>
         <input 
-          className="form-control is-invalid" id="password" type="password" placeholder="Password"
+          className="form-control mb-2" id="password" type="password" placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <p className="invalid-feedback">{props.errorMessage}</p>
       </div>
       
       <button 

@@ -8,5 +8,3 @@ export default {
 }  
 
 export const Default = () => <Login />
-
-export const Error = () => <Login errorMessage="Incorrect username or password."/>
