@@ -42,13 +42,3 @@ class AuthTestCase(TestCase):
         self.client.credentials(HTTP_AUTHORIZATION='')
         response = self.client.post('/api/login/', self.credentials, format='json')
         self.assertNotEqual(first_token, response.data['token'])
-
-class UtilsTestCase(TestCase):
-    def test_google_search(self):
-        from .utils import google_search
-
-        search_query = 'fb stock'
-        expected_substring = 'News about Meta Platforms'
-
-        search_result = google_search(search_query)
-        self.assertTrue(expected_substring in search_result)
