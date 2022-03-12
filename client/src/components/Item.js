@@ -1,13 +1,24 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Item = (props) => {
-    return <div className={`card`} >
-        <div className={`card-body`}>
-            <div className={`form-check`}>
-                <input className={`form-check-input`} type="checkbox"/>
-                <h5 className={`card-title`}>{props.data.name}</h5>
-                <p className={`card-text`}>{props.data.ingredients}</p>
+    return <div className={``}>
+        <div>
+            <p className={`card-text`}>
+                <strong>{props.data.name.toUpperCase() + " "}</strong>
+            </p>
+            {props.data.ingredients.toUpperCase()}
+        </div>
+        <div class="d-flex justify-content-end mb-1">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group me-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-light border">Customize</button>
+
             </div>
+            <div class="btn-group" role="group" aria-label="Second group">
+                <button type="button" class="btn btn-primary">Add to order</button>
+            </div>
+        </div>
+           
         </div>
     </div>
 }
