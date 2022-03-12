@@ -1,24 +1,22 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Item = (props) => {
-    return <div className={``}>
+    return <div>
+        <strong>{props.data.name.toUpperCase()}</strong>
         <div>
-            <p className={`card-text`}>
-                <strong>{props.data.name.toUpperCase() + " "}</strong>
-            </p>
-            {props.data.ingredients.toUpperCase()}
+        {props.data.ingredients.join(', ').toUpperCase()}
         </div>
-        <div class="d-flex justify-content-end mb-1">
-        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-            <div class="btn-group me-2" role="group" aria-label="First group">
-                <button type="button" class="btn btn-light border">Customize</button>
+        {props.extras ? <Extras data={props.extras}/>: <></>}
+    </div>
+}
 
+const Extras = (props) => {
+    return <div>
+        <strong>EXTRAS</strong>
+        {props.data.map(extra => <div>
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+            {" " + extra + " "}
             </div>
-            <div class="btn-group" role="group" aria-label="Second group">
-                <button type="button" class="btn btn-primary">Add to order</button>
-            </div>
-        </div>
-           
-        </div>
+            )}
     </div>
 }
