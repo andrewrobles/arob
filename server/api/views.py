@@ -3,6 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 from django.contrib.auth.models import User
+from .models import Item, Ingredient, Extra
 
 @api_view(['GET'])
 def helloworld(request):
@@ -18,3 +19,10 @@ def sign_up(request):
 def logout(request):
     request.user.auth_token.delete()
     return Response({'token': None})
+
+@api_view(['GET'])
+def menu(request):
+    return Response({
+        'items': [{'name': item.name, 'price': item.price, 'ingredients': [{'name': ingredient.name} for ingredient in item.ingredients.all()]} for item in Item.objects.all()],
+        'extras': [{'name': extra.name, 'price': extra.price} for extra in Extra.objects.all()]
+    })

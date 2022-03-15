@@ -1,6 +1,7 @@
 from django.test import TestCase
 from rest_framework.test import APIClient
 from django.contrib.auth.models import User
+from .models import Item, Ingredient, Extra
 
 class HelloWorldTestCase(TestCase):
     def test_get_hello_world(self):
@@ -42,3 +43,23 @@ class AuthTestCase(TestCase):
         self.client.credentials(HTTP_AUTHORIZATION='')
         response = self.client.post('/api/login/', self.credentials, format='json')
         self.assertNotEqual(first_token, response.data['token'])
+
+
+class MenuTestCase(TestCase):
+    def setUp(self):
+        item = Item.objects.create(name='Toast', price=5)
+        item.ingredients.add(Ingredient.objects.create(name='Bread'))
+        item.ingredients.add(Ingredient.objects.create(name='Butter'))
+        Extra.objects.create(name='Avocado', price=1)
+
+    def test_get_menu(self):
+        actual = self.client.get('/api/menu/', format='json').data
+        expected = {
+            'items': [{
+                'name': 'Toast', 'price': 5,
+                'ingredients': [{'name': 'Bread'}, {'name': 'Butter'}]
+            }],
+            'extras': [{'name': 'Avocado', 'price': 1}]
+        }
+
+        self.assertEqual(actual, expected)
