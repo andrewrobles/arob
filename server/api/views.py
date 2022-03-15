@@ -22,7 +22,6 @@ def logout(request):
 
 @api_view(['GET'])
 def menu(request):
-    return Response({
-        'items': [{'name': item.name, 'price': item.price, 'ingredients': [{'name': ingredient.name} for ingredient in item.ingredients.all()]} for item in Item.objects.all()],
-        'extras': [{'name': extra.name, 'price': extra.price} for extra in Extra.objects.all()]
-    })
+    return Response([
+        {'name': item.name, 'ingredients': [ingredient.name for ingredient in item.ingredients.all()]} for item in Item.objects.all()
+    ])

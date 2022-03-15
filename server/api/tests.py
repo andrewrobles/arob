@@ -54,12 +54,11 @@ class MenuTestCase(TestCase):
 
     def test_get_menu(self):
         actual = self.client.get('/api/menu/', format='json').data
-        expected = {
-            'items': [{
-                'name': 'Toast', 'price': 5,
-                'ingredients': [{'name': 'Bread'}, {'name': 'Butter'}]
-            }],
-            'extras': [{'name': 'Avocado', 'price': 1}]
-        }
+        expected = [
+            {
+                'name': 'Toast',
+                'ingredients': ['Bread', 'Butter']
+            }
+        ]
 
         self.assertEqual(actual, expected)
