@@ -2,9 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Item = (props) => {
     return <div>
-        <strong>{props.data.name.toUpperCase()}</strong>
+        <strong>{props.data.name}</strong>
         <div>
-        {props.data.ingredients.join(', ').toUpperCase()}
+        {props.data.ingredients.join(', ')}
         </div>
         {props.extras ? <Extras data={props.extras}/>: <></>}
     </div>
