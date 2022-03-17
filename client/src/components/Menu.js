@@ -1,13 +1,29 @@
+import {useState} from 'react'
+
 import { Item } from '../components/Item'
 import { Navbar } from '../components/Navbar'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Menu = (props) => {
+    const [pageIndex, setPageIndex] = useState(0)
+
+    const buttons = [
+        {
+            label: props.pages[0].title,
+            action: () => setPageIndex(0)
+        },
+        {
+            label: props.pages[1].title,
+            action: () => setPageIndex(1)
+        }
+    ]
+
     return <div>
-        <div className={`card`} >
+        <Navbar text={props.pages[pageIndex].title}/>
+        <div className={`card mt-5`} >
             <ul className={`list-group list-group-flush`}>
-                {props.items.map(item => <li className={`list-group-item`}>
+                {props.pages[pageIndex].items.map(item => <li className={`list-group-item`}>
                         <Item data={item}/>
                         <div class="d-flex justify-content-end mb-1">
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
@@ -20,6 +36,6 @@ export const Menu = (props) => {
                 )}
             </ul>
         </div>
-        <Navbar/>
+        <Navbar bottom buttons={buttons}/>
     </div>
 }
