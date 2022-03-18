@@ -3,7 +3,23 @@ from rest_framework.decorators import api_view
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 from django.contrib.auth.models import User
-from .models import Item, Ingredient, Extra
+from .models import Order, Item, Ingredient, Extra
+
+@api_view(['POST', 'GET'])
+def order(request):
+    if request.method == 'POST':
+        order = Order.get_singleton()
+        order.add_item(request.data['id'])
+    elif request.method == 'GET':
+        order = Order.get_singleton()
+        return Response([
+        {'name': item.name, 'ingredients': 
+            [ingredient.name for ingredient in item.ingredients.all()]
+        } 
+        for item in order.items.all()
+    ])
+
+    return Response()
 
 @api_view(['GET'])
 def helloworld(request):
@@ -23,5 +39,8 @@ def logout(request):
 @api_view(['GET'])
 def menu(request):
     return Response([
-        {'name': item.name, 'ingredients': [ingredient.name for ingredient in item.ingredients.all()]} for item in Item.objects.all()
+        {'name': item.name, 'ingredients': 
+            [ingredient.name for ingredient in item.ingredients.all()]
+        } 
+        for item in Item.objects.all()
     ])

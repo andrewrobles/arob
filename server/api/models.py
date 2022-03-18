@@ -1,5 +1,19 @@
 from django.db import models
 
+
+class Order(models.Model):
+    items = models.ManyToManyField('Item')
+
+    @classmethod
+    def get_singleton(self):
+        if Order.objects.count() == 0:
+            return self.objects.create()
+        else:
+            return self.objects.first()
+
+    def add_item(self, id):
+        self.items.add(Item.objects.get(id=id))
+
 class Item(models.Model):
     name = models.CharField(max_length=50)
     ingredients = models.ManyToManyField('Ingredient')
@@ -9,11 +23,13 @@ class Item(models.Model):
     def __str__(self):
         return self.name
 
+
 class Ingredient(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
+
 
 class Extra(models.Model):
     name = models.CharField(max_length=50)
