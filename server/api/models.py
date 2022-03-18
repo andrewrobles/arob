@@ -11,8 +11,10 @@ class Order(models.Model):
         else:
             return self.objects.first()
 
-    def add_item(self, id):
-        self.items.add(Item.objects.get(id=id))
+    def get_items(self):
+        return [{'name': item.name, 'ingredients': 
+        [ingredient.name for ingredient in item.ingredients.all()]} 
+        for item in self.items.all()]
 
 class Item(models.Model):
     name = models.CharField(max_length=50)

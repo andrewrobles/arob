@@ -7,19 +7,10 @@ from .models import Order, Item, Ingredient, Extra
 
 @api_view(['POST', 'GET'])
 def order(request):
+    order = Order.get_singleton()
     if request.method == 'POST':
-        order = Order.get_singleton()
-        order.add_item(request.data['id'])
-    elif request.method == 'GET':
-        order = Order.get_singleton()
-        return Response([
-        {'name': item.name, 'ingredients': 
-            [ingredient.name for ingredient in item.ingredients.all()]
-        } 
-        for item in order.items.all()
-    ])
-
-    return Response()
+        order.items.add(request.data['id'])
+    return Response(order.get_items())
 
 @api_view(['GET'])
 def helloworld(request):

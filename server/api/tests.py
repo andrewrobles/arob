@@ -40,13 +40,6 @@ class TestApi(TestCase):
         ]
         self.assertEqual(actual, expected)
 
-    # def test_remove_from_order(self):
-    #     from api.models import Order
-    #     self.client.post('/api/order/', {'id': self.item.id})
-    #     self.client.delete('/api/menu/order/add/', {'id': self.item.id})
-    #     self.assertEqual(len(Order.objects.all()), 0)
-
-
 class HelloWorldTestCase(TestCase):
     def test_get_hello_world(self):
         factory = APIClient()
