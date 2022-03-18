@@ -45,11 +45,11 @@ class AuthTestCase(TestCase):
         self.assertNotEqual(first_token, response.data['token'])
 
 
-class MenuTestCase(TestCase):
+class TestApi(TestCase):
     def setUp(self):
-        item = Item.objects.create(name='Toast', price=5)
-        item.ingredients.add(Ingredient.objects.create(name='Bread'))
-        item.ingredients.add(Ingredient.objects.create(name='Butter'))
+        self.item = Item.objects.create(name='Toast', price=5)
+        self.item.ingredients.add(Ingredient.objects.create(name='Bread'))
+        self.item.ingredients.add(Ingredient.objects.create(name='Butter'))
         Extra.objects.create(name='Avocado', price=1)
 
     def test_get_menu(self):
@@ -62,3 +62,30 @@ class MenuTestCase(TestCase):
         ]
 
         self.assertEqual(actual, expected)
+
+    def test_add_to_order(self):
+        from api.models import Order
+        self.client.post('/api/order/', {'id': self.item.id})
+        self.assertEqual(len(Order.objects.all()), 1)
+        self.assertEqual(Order.objects.first().name, 'Toast')
+        self.assertEqual(len(Order.objects.first().ingredients.all()), 1)
+        self.assertEqual(Order.objects.first().ingredients.all()[0].name, 'Bread')
+        self.assertEqual(Order.objects.first().ingredients.all()[1].name, 'Butter')
+
+    def test_get_order(self):
+        from api.models import Order
+        self.client.post('/api/order/', {'id': self.item.id})
+        actual = self.client.get('/api/order/')
+        expected = [
+            {
+                'name': 'Toast',
+                'ingredients': ['Bread', 'Butter']
+            }
+        ]
+        self.assertEqual(actual, expected)
+
+    def test_remove_from_order(self):
+        from api.models import Order
+        self.client.post('/api/order/', {'id': self.item.id})
+        self.client.delete('/api/menu/order/add/', {'id': self.item.id})
+        self.assertEqual(len(Order.objects.all()), 0)
