@@ -5,7 +5,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from django.contrib.auth.models import User
 from .models import Order, Item, Ingredient, Extra
 
-@api_view(['POST', 'GET'])
+@api_view(['POST', 'GET', 'DELETE'])
 def order(request):
     order = Order.get_singleton()
     if request.method == 'POST':
