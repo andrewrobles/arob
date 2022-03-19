@@ -5,7 +5,7 @@ class Order(models.Model):
     items = models.ManyToManyField('Item')
 
     @classmethod
-    def get_singleton(self):
+    def singleton(self):
         if Order.objects.count() == 0:
             return self.objects.create()
         else:
@@ -15,6 +15,10 @@ class Order(models.Model):
         return [{'name': item.name, 'ingredients': 
         [ingredient.name for ingredient in item.ingredients.all()]} 
         for item in self.items.all()]
+
+    def __str__(self):
+        return ', '.join([item.__str__() for item in self.items.order_by('-price')])
+
 
 class Item(models.Model):
     name = models.CharField(max_length=50)

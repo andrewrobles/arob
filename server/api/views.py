@@ -7,9 +7,11 @@ from .models import Order, Item, Ingredient, Extra
 
 @api_view(['POST', 'GET', 'DELETE'])
 def order(request):
-    order = Order.get_singleton()
+    order = Order.singleton()
     if request.method == 'POST':
         order.items.add(request.data['id'])
+    elif request.method == 'DELETE':
+        order.items.remove(request.data['id'])
     return Response(order.get_items())
 
 @api_view(['GET'])
