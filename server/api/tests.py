@@ -6,6 +6,7 @@ from api.models import Order, Item, Ingredient, Extra
 
 class TestApi(TestCase):
     def setUp(self):
+        self.client = APIClient()
         self.item1 = Item.objects.create(name='Toast', price=5)
         self.item1.ingredients.add(Ingredient.objects.create(name='Bread'))
         self.item1.ingredients.add(Ingredient.objects.create(name='Butter'))
@@ -38,10 +39,10 @@ class TestApi(TestCase):
         ]
         self.assertEqual(actual, expected)
 
-    # def test_remove_from_order(self):
-    #     self.client.post('/api/order/', {'id': self.item1.id})
-    #     self.client.delete('/api/order/', {'id': self.item1.id})
-    #     self.assertEqual(len(Order.singleton().items.all()), 0)
+    def test_remove_from_order(self):
+        self.client.post('/api/order/', {'id': self.item1.id}, format='json')
+        self.client.delete('/api/order/', {'id': self.item1.id}, format='json')
+        self.assertEqual(len(Order.singleton().items.all()), 0)
 
     def test_str_method(self):
         self.item2 = Item.objects.create(name='Milk', price=2)

@@ -5,11 +5,11 @@ class Order(models.Model):
     items = models.ManyToManyField('Item')
 
     @classmethod
-    def singleton(self):
-        if Order.objects.count() == 0:
-            return self.objects.create()
+    def singleton(cls):
+        if cls.objects.count() == 0:
+            return cls.objects.create()
         else:
-            return self.objects.first()
+            return cls.objects.first()
 
     def get_items(self):
         return [{'name': item.name, 'ingredients': 
