@@ -11,6 +11,9 @@ def order(request):
     if request.method == 'POST':
         item = Item.objects.get(id=request.data['id'])
         order.items.add(item)
+        if 'extras' in request.data:
+            for extra in request.data['extras']:
+                item.extras.add(extra['id'])
     elif request.method == 'DELETE':
         item = Item.objects.get(id=request.data['id'])
         order.items.remove(item)

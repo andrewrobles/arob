@@ -31,7 +31,7 @@ class TestApi(TestCase):
         response = self.client.post('/api/order/', {
             'id': self.item1.id,
             'extras': [{'id': self.extra.id}]
-        })
+        }, format='json')
         self.assertEqual(len(Order.singleton().items.all()[0].extras.all()), 1)
 
     def test_get_order(self):
