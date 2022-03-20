@@ -7,28 +7,56 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Menu = (props) => {
     const [pageIndex, setPageIndex] = useState(0)
+    const [order, setOrder] = useState([])
+    const [items, setItems] = useState(props.items)
 
-    const buttons = [
+    const pages = [
         {
-            label: props.pages[0].title,
-            action: () => setPageIndex(0)
+            title: 'FULL MENU',
+            items: props.items,
+            buttonText: 'Add to order',
+            action: (item) => addItem(item)
         },
         {
-            label: props.pages[1].title,
-            action: () => setPageIndex(1)
+            title: "MY ORDER",
+            items: order,
+            buttonText: 'Remove',
+            action: (item) => removeItem(item)
         }
     ]
+    
+    const addItem = (item) => {
+        setOrder(order.concat(item))
+    }
+
+    const removeItem = (item) => {
+        order.pop(item)
+        setOrder(order)
+        setItems(order)
+        console.log(items)
+    }
+
+    const showMenu = () => {
+        setPageIndex(0)
+        setItems(props.items)
+    }
+
+    const showOrder = () => {
+        setPageIndex(1)
+        setItems(order)
+        console.log(items)
+    }
 
     return <div>
-        <Navbar text={props.pages[pageIndex].title}/>
+        <Navbar text={pages[pageIndex].title}/>
         <div className={`card mt-5`} >
             <ul className={`list-group list-group-flush`}>
-                {props.pages[pageIndex].items.map(item => <li className={`list-group-item`}>
+                {items.map(item => <li className={`list-group-item`}>
                         <Item data={item}/>
                         <div class="d-flex justify-content-end mb-1">
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group" role="group" aria-label="Second group">
-                                    <button type="button" class="btn btn-light border">Add to order</button>
+                                    <button onClick={() => pages[pageIndex].action(item)} type="button" class="btn btn-light border">{pages[pageIndex].buttonText}</button>
                                 </div>
                             </div>       
                         </div>  
@@ -36,6 +64,15 @@ export const Menu = (props) => {
                 )}
             </ul>
         </div>
-        <Navbar bottom buttons={buttons}/>
+        <Navbar bottom buttons={[
+        {
+            label: pages[0].title,
+            action: () => showMenu()
+        },
+        {
+            label: pages[1].title,
+            action: () => showOrder()
+        }
+        ]}/>
     </div>
 }

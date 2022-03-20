@@ -45,14 +45,5 @@ const menuItems = [
 
 
 export const Default = () => <Menu 
-    pages={[
-        {
-            title: "FULL MENU",
-            items: menuItems
-        },
-        {
-            title: "MY ORDER",
-            items: menuItems.slice(0, 2)
-        }
-    ]}
+    items={menuItems}
 />
