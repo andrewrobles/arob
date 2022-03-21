@@ -20,7 +20,7 @@ const Buttons = (props) => {
             props.buttons.map(button => 
                 <div class="btn-group me-2" role="group" aria-label="First group">
                     <button onClick={button.action} type="button" class="btn btn-lg btn-light border">
-                        <strong>{button.label}</strong>
+                        <strong>{button.text}</strong>
                     </button>
                 </div>
             )

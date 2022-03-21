@@ -9,7 +9,7 @@ export const List = (props) => {
                 <div class="d-flex justify-content-end mb-1">
                     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                         <div class="btn-group" role="group" aria-label="Second group">
-                            <button onClick={props.buttonAction} type="button" class="btn btn-light border">{props.buttonText}</button>
+                            <button onClick={() => props.buttonAction(item)} type="button" class="btn btn-light border">{props.buttonText}</button>
                         </div>
                     </div>       
                 </div>  

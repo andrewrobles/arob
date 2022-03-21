@@ -6,37 +6,37 @@ export default {
 
 const menuItems = [
     {
-        name: 'Poppin Pastrami',
+        name: '#1 Poppin Pastrami',
         ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
         'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
         'Red Onions', 'Banana Peppers']
     },
     {
-        name: 'Poppin Pastrami',
+        name: '#2 Poppin Pastrami',
         ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
         'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
         'Red Onions', 'Banana Peppers']
     },
     {
-        name: 'Poppin Pastrami',
+        name: '#3 Poppin Pastrami',
         ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
         'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
         'Red Onions', 'Banana Peppers']
     },
     {
-        name: 'Poppin Pastrami',
+        name: '#4 Poppin Pastrami',
         ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
         'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
         'Red Onions', 'Banana Peppers']
     },
     {
-        name: 'Poppin Pastrami',
+        name: '#5 Poppin Pastrami',
         ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
         'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
         'Red Onions', 'Banana Peppers']
     },
     {
-        name: 'Poppin Pastrami',
+        name: '#6 Poppin Pastrami',
         ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
         'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
         'Red Onions', 'Banana Peppers']
