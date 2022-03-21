@@ -8,15 +8,27 @@ export default {
 export const Remove = () => {
     const [state, setState] = useState({
         items: [{
-            name: 'Poppin Pastrami',
+            name: '#1 Poppin Pastrami',
+            ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
+            'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
+            'Red Onions', 'Banana Peppers']
+        },
+        {
+            name: '#2 Poppin Pastrami',
+            ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
+            'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
+            'Red Onions', 'Banana Peppers']
+        },
+        {
+            name: '#3 Poppin Pastrami',
             ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
             'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
             'Red Onions', 'Banana Peppers']
         }]
     })
     
-    const removeItem = (item) => {
-        state.items.pop()
+    const removeItem = (index) => {
+        state.items.splice(index, 1)
         setState({
             items: state.items
         })

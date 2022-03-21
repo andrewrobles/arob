@@ -17,15 +17,16 @@ export const Menu = (props) => {
         })
     }
 
-    const addItem = (item) => {
+    const addItem = (index) => {
+        const item = props.items[index]
         setState({
             ...state,
             order: state.order.concat(item)
         })
     }
 
-    const removeItem = (item) => {
-        state.order.pop(item)
+    const removeItem = (index) => {
+        state.order.splice(index, 1)
         setState({
             ...state,
             order: state.order
