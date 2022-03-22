@@ -3,17 +3,19 @@ from rest_framework.decorators import api_view
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 from django.contrib.auth.models import User
-from .models import Order, Item, Ingredient, Extra
+from .models import Order, OrderItem, MenuItem, Ingredient, Extra
 
 @api_view(['POST', 'GET', 'DELETE'])
 def order(request):
     order = Order.singleton()
     if request.method == 'POST':
-        item = Item.objects.get(id=request.data['id'])
-        order.items.add(item)
-        if 'extras' in request.data:
-            for extra in request.data['extras']:
-                item.extras.add(extra['id'])
+        for requested_item in request.data:
+            menu_item = MenuItem.objects.get(id=requested_item['id'])
+            order_item = OrderItem.objects.create(menu_item=menu_item)
+            if 'extras' in request.data:
+                for extra in request.data['extras']:
+                    order_item.extras.add(extra['id'])
+            order.order_items.add(order_item)
     elif request.method == 'DELETE':
         item = Item.objects.get(id=request.data['id'])
         order.items.remove(item)

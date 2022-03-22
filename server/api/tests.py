@@ -1,15 +1,16 @@
 from django.test import TestCase
 from rest_framework.test import APIClient
 from django.contrib.auth.models import User
-from api.models import Order, Item, Ingredient, Extra
+from api.models import Order, OrderItem, MenuItem, Ingredient, Extra
 
 
 class TestApi(TestCase):
     def setUp(self):
         self.client = APIClient()
-        self.item1 = Item.objects.create(name='Toast', price=5)
+        self.item1 = MenuItem.objects.create(name='Toast', price=5)
         self.item1.ingredients.add(Ingredient.objects.create(name='Bread'))
         self.item1.ingredients.add(Ingredient.objects.create(name='Butter'))
+        self.item2 = MenuItem.objects.create(name='Milk', price=2)
         self.extra = Extra.objects.create(name='Avocado', price=1)
 
     def test_get_menu(self):
@@ -23,16 +24,13 @@ class TestApi(TestCase):
 
         self.assertEqual(actual, expected)
 
-    def test_add_item_to_order(self):  
-        response = self.client.post('/api/order/', {'id': self.item1.id})
-        self.assertEqual(len(Order.singleton().items.all()), 1)
+    def test_add_items(self):  
+        self.client.post('/order/', [{'id': self.item1.id}, {'id': self.item1.id}], format='json')
+        self.assertEqual(len(Order.singleton().order_items.all()), 2)
 
-    def test_add_item_with_extra_to_order(self):
-        response = self.client.post('/api/order/', {
-            'id': self.item1.id,
-            'extras': [{'id': self.extra.id}]
-        }, format='json')
-        self.assertEqual(len(Order.singleton().items.all()[0].extras.all()), 1)
+    def test_add_extras(self):        
+        self.client.post('/order/', [{'id': self.item1.id, 'extras': [{'id': self.extra.id}]}], format='json')
+        self.assertEqual(len(Order.singleton().order_items.all()[0].extras.all()), 1)
 
     def test_get_order(self):
         self.client.post('/api/order/', {'id': self.item1.id})
@@ -51,7 +49,6 @@ class TestApi(TestCase):
         self.assertEqual(len(Order.singleton().items.all()), 0)
 
     def test_str_method(self):
-        self.item2 = Item.objects.create(name='Milk', price=2)
         self.client.post('/api/order/', {'id': self.item1.id})
         self.client.post('/api/order/', {'id': self.item2.id})
         self.assertEqual(Order.singleton().__str__(), 'Toast, Milk')
