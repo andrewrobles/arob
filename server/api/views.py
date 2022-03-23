@@ -3,22 +3,22 @@ from rest_framework.decorators import api_view
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 from django.contrib.auth.models import User
-from .models import Order, OrderItem, MenuItem, Ingredient, Extra
+from .models import Order, OrderedItem, Item, Ingredient, Extra
 
 @api_view(['POST', 'GET', 'DELETE'])
 def order(request):
     order = Order.singleton()
     if request.method == 'POST':
         for requested_item in request.data:
-            menu_item = MenuItem.objects.get(id=requested_item['id'])
-            order_item = OrderItem.objects.create(menu_item=menu_item)
-            if 'extras' in request.data:
-                for extra in request.data['extras']:
+            item = Item.objects.get(id=requested_item['id'])
+            order_item = OrderedItem.objects.create(item=item)
+            if 'extras' in requested_item:
+                for extra in requested_item['extras']:
                     order_item.extras.add(extra['id'])
-            order.order_items.add(order_item)
+            order.ordered_items.add(order_item)
     elif request.method == 'DELETE':
-        item = Item.objects.get(id=request.data['id'])
-        order.items.remove(item)
+        for ordered_item in order.ordered_items.all():
+            order.ordered_items.remove(ordered_item)
     return Response(order.get_items())
 
 @api_view(['GET'])

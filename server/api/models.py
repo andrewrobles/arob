@@ -1,8 +1,7 @@
 from django.db import models
 
-
 class Order(models.Model):
-    order_items = models.ManyToManyField('OrderItem')
+    ordered_items = models.ManyToManyField('OrderedItem')
 
     @classmethod
     def singleton(cls):
@@ -12,18 +11,21 @@ class Order(models.Model):
             return cls.objects.first()
 
     def get_items(self):
-        return [{'name': item.menu_item.name, 'ingredients': 
-        [ingredient.name for ingredient in item.menu_item.ingredients.all()]} 
-        for item in self.order_items.all()]
+        return [{'name': ordered_item.item.name, 'ingredients': 
+        [ingredient.name for ingredient in ordered_item.item.ingredients.all()]} 
+        for ordered_item in self.ordered_items.all()]
 
     def __str__(self):
-        return ', '.join([item.__str__() for item in self.items.order_by('-price')])
+        return ', '.join([ordered_item.__str__() for ordered_item in self.ordered_items.all()])
 
-class OrderItem(models.Model):
-    menu_item = models.ForeignKey('MenuItem', on_delete=models.CASCADE)
+class OrderedItem(models.Model):
+    item = models.ForeignKey('Item', on_delete=models.CASCADE)
     extras = models.ManyToManyField('Extra')
+
+    def __str__(self):
+        return self.item.__str__()
     
-class MenuItem(models.Model):
+class Item(models.Model):
     name = models.CharField(max_length=50)
     ingredients = models.ManyToManyField('Ingredient')
     price = models.DecimalField(max_digits=5, decimal_places=2)

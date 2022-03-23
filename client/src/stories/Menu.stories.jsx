@@ -4,7 +4,7 @@ export default {
     component: Menu,
 }
 
-const menuItems = [
+const Items = [
     {
         name: '#1 Poppin Pastrami',
         ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
@@ -45,5 +45,5 @@ const menuItems = [
 
 
 export const Default = () => <Menu 
-    items={menuItems}
+    items={Items}
 />
