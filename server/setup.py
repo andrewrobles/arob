@@ -12,7 +12,7 @@ for extra in Extra.objects.all():
 for extra_data in menu['extras']:
     Extra.objects.create(name=extra_data['name'].title(), price=extra_data['price'])
 
-for sandwhich_data in menu['sandwhiches']:
+for sandwhich_data in menu['items']:
     item = Item.objects.create(name=sandwhich_data['name'].title(), price=sandwhich_data['price'])
     for ingredient_data in sandwhich_data['ingredients']:
         try:
