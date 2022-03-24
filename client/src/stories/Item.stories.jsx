@@ -1,7 +1,7 @@
 import { Item } from '../components/Item'
 
 export default {
-    component: Item,
+    component: Item
 }
 
 export const Default = () => <Item 

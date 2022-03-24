@@ -33,28 +33,30 @@ export const Menu = (props) => {
         })
     }
 
+    const firstPageTitle = 'FULL MENU'
+    const secondPageTitle = 'CHECKOUT'
     const pages = [
         {
-            title: 'FULL MENU',
+            title: firstPageTitle,
             items: props.items,
             orderButton: {
                 text: 'Add to order',
                 action: addItem
             },
             navButton: {
-                text: 'FULL MENU',
+                text: firstPageTitle,
                 action: () => setPageIndex(0)
             }
         },
         {
-            title: 'MY ORDER',
+            title: secondPageTitle,
             items: state.order,
             orderButton: {
                 text: 'Remove',
                 action: removeItem
             },
             navButton: {
-                text: 'MY ORDER',
+                text: secondPageTitle,
                 action: () => setPageIndex(1)
             }
         }
@@ -62,7 +64,9 @@ export const Menu = (props) => {
     const activePage = pages[state.pageIndex]
     return <div>
         <Navbar text={activePage.title}/>
-        <List items={activePage.items} buttonText={activePage.orderButton.text} buttonAction={activePage.orderButton.action}/>
+        <div className={`mt-5`} >
+            <List items={activePage.items} buttonText={activePage.orderButton.text} buttonAction={activePage.orderButton.action}/>
+        </div>
         <Navbar bottom buttons={[pages[0].navButton, pages[1].navButton]}/>
     </div>
 }

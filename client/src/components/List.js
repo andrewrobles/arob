@@ -2,7 +2,7 @@ import { Item } from './Item'
 
 export const List = (props) => {    
     return <div style={{minHeight: '100vh'}}>
-            <div className={`card mt-5`}>
+            <div className={`card`}>
             <ul className={`list-group list-group-flush`}>
                 {props.items.map((item, index) => <li key={index} className={`list-group-item`}>
                         <Item data={item}/>
