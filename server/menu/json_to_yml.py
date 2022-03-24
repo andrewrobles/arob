@@ -8,3 +8,4 @@ data = json.loads(data)
 
 file = open('menu.yml', 'w')
 yaml.dump(data, file)
+file.close()

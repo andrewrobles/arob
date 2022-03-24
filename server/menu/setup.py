@@ -1,9 +1,6 @@
-import json
 from api.models import Item, Ingredient, Extra
 
-file = open("menu.json")
-data = json.load(file)
-file.close()
+from menu import menu
 
 for item in Item.objects.all():
     item.delete()
@@ -12,10 +9,10 @@ for ingredient in Ingredient.objects.all():
 for extra in Extra.objects.all():
     extra.delete()
 
-for extra_data in data['extras']:
+for extra_data in menu['extras']:
     Extra.objects.create(name=extra_data['name'].title(), price=extra_data['price'])
 
-for sandwhich_data in data['sandwhiches']:
+for sandwhich_data in menu['sandwhiches']:
     item = Item.objects.create(name=sandwhich_data['name'].title(), price=sandwhich_data['price'])
     for ingredient_data in sandwhich_data['ingredients']:
         try:

@@ -17,7 +17,7 @@ extras:
   price: 0.75
 - name: habenero peppers
   price: 0.75
-sandwhiches:
+items:
 - ingredients:
   - wheat bread
   - cheddar cheese
