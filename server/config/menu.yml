@@ -45,7 +45,7 @@ items:
   price: 9
 - ingredients:
   - french roll bread
-  - ' provolone'
+  - provolone
   - cheese
   - mayo
   - ham
