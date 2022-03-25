@@ -11,9 +11,11 @@ class Order(models.Model):
             return cls.objects.first()
 
     def get_items(self):
-        return [{'name': ordered_item.item.name, 'ingredients': 
-        [ingredient.name for ingredient in ordered_item.item.ingredients.all()]} 
-        for ordered_item in self.ordered_items.all()]
+        return [{
+            'id': ordered_item.item.id,
+            'name': ordered_item.item.name, 
+            'ingredients': [ingredient.name for ingredient in ordered_item.item.ingredients.all()]
+            } for ordered_item in self.ordered_items.all()]
 
     def __str__(self):
         return ', '.join([ordered_item.__str__() for ordered_item in self.ordered_items.all()])
