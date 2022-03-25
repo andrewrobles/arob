@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import { List } from '../components/List'
-import { Navbar } from '../components/Navbar'
 import { Checkout } from '../components/Checkout'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -10,13 +9,6 @@ export const Menu = (props) => {
         pageIndex: 0,
         order: []
     })
-
-    const setPageIndex = (index) => {
-        setState({
-            ...state,
-            pageIndex: index
-        })
-    }
 
     const addItem = (index) => {
         const item = props.items[index]
@@ -34,39 +26,14 @@ export const Menu = (props) => {
         })
     }
 
-    const firstPageTitle = 'Order'
-    const secondPageTitle = 'CHECKOUT'
-    const pages = [
-        {
-            title: firstPageTitle,
-            items: props.items,
-            orderButton: {
-                text: 'Add to order',
-                action: addItem
-            },
-            navButton: {
-                text: firstPageTitle,
-                action: () => setPageIndex(0)
-            }
-        },
-        {
-            title: secondPageTitle,
-            items: state.order,
-            orderButton: {
-                text: 'Remove',
-                action: removeItem
-            },
-            navButton: {
-                text: secondPageTitle,
-                action: () => setPageIndex(1)
-            }
-        }
-    ]
-    const activePage = pages[state.pageIndex]
     return <div>
-        <Navbar text={activePage.title}/>
+        <nav className={`navbar fixed-top navbar-expand-lg navbar-light bg-light`}>
+            <div className="mx-3">
+                <h2><strong>Order</strong></h2>
+            </div>
+        </nav>
         <div className={`mt-5`} >
-            <List items={activePage.items} buttonText={activePage.orderButton.text} buttonAction={activePage.orderButton.action}/>
+            <List items={props.items} buttonText={"Add to order"} buttonAction={addItem}/>
         </div>
         {state.order.length > 0 &&  <Checkout items={state.order} buttonAction={() => alert('Button press')}
         listButtonText={'Remove'} listButtonAction={removeItem}
