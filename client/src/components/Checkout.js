@@ -1,8 +1,19 @@
+import { useRef } from 'react';
 import { List } from './List';
 
 import "bootstrap";
 
 export const Checkout = (props) => {
+
+    const closeRef = useRef()
+
+    const removeButtonAction = () => {
+        if (props.items.length == 1) {
+            closeRef.current.click()
+        }
+        props.listButtonAction()
+    }
+
     return <div>
         <div className='card rounded-0 border-0 fixed-bottom'>
             <button type="button" className="btn btn-lg btn-warning btn-block rounded-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -15,10 +26,10 @@ export const Checkout = (props) => {
             <div className="modal-content">
             <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel"><strong>Your Order</strong></h5>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" ref={closeRef} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-                <List items={props.items} buttonText={props.listButtonText} buttonAction={props.listButtonAction}/>
+                <List items={props.items} buttonText={props.listButtonText} buttonAction={removeButtonAction}/>
             </div>
             <div className="modal-footer">
                 <button type="button" className="btn btn-lg btn-light border" data-bs-dismiss="modal">Order More</button>
