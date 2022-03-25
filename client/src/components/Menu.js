@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import { List } from '../components/List'
 import { Navbar } from '../components/Navbar'
+import { Checkout } from '../components/Checkout'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -33,7 +34,7 @@ export const Menu = (props) => {
         })
     }
 
-    const firstPageTitle = 'FULL MENU'
+    const firstPageTitle = 'Order'
     const secondPageTitle = 'CHECKOUT'
     const pages = [
         {
@@ -67,6 +68,9 @@ export const Menu = (props) => {
         <div className={`mt-5`} >
             <List items={activePage.items} buttonText={activePage.orderButton.text} buttonAction={activePage.orderButton.action}/>
         </div>
-        <Navbar bottom buttons={[pages[0].navButton, pages[1].navButton]}/>
+        {state.order.length > 0 &&  <Checkout items={state.order} buttonAction={() => alert('Button press')}
+        listButtonText={'Remove'} listButtonAction={removeItem}
+        />}
+       
     </div>
 }

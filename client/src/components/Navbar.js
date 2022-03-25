@@ -4,8 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export const Navbar = (props) => {
     const fixedPosition = props.bottom ? "fixed-bottom" : "fixed-top"
     return <nav className={`navbar ${fixedPosition} navbar-expand-lg navbar-light bg-light`}>
-        <div className="mx-auto">
-            <h4><strong>{props.text}</strong></h4>
+        <div className="">
+            <div className="mx-3">
+                <h2><strong>{props.text}</strong></h2>
+            </div>
             <Buttons buttons={props.buttons}/>
         </div>
     </nav>
