@@ -18,6 +18,4 @@ export const List = (props) => {
             </ul>
         </div>
     </div>
-    
-
 }
