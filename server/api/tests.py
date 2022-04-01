@@ -10,7 +10,7 @@ class TestApi(TestCase):
         Item.objects.create(name='Milk', price=2)
 
     def test_get_menu(self):
-        actual = self.client.get('/api/menu/', format='json').data
+        actual = self.client.get('/menu/', format='json').data
         expected = [
             {
                 'name': 'Toast',
