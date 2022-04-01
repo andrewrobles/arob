@@ -1,9 +1,0 @@
-Hi my name is Andrew and I'm a software engineer
-I'd like to talk to you about upgrading this form to an iPad app to:
-shorten wait times and increase customer retention.
-
-I've found some things wrong with your ordering process:
-- It is difficult for the customer to see that they are only able to add one extra
-- There is nothing preventing a customer to check multiple extra boxes
-- No way to specify which menu items the special request or extras should apply to
-- Sandwhiches makers have to hold customer form in one hand while preparing meal
