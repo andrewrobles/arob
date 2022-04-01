@@ -7,39 +7,23 @@ export default {
 const Items = [
     {
         name: '#1 Poppin Pastrami',
-        ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
-        'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
-        'Red Onions', 'Banana Peppers']
+        description: ['French Roll, Bread White, American Cheese, BBQ Sauce, Honey Mustard, Spicy Mustard, Pastrami, Tomatoes, Pickles, Spinach, Red Onions, Banana Peppers, French Roll, Bread White, American Cheese, BBQ Sauce']
     },
     {
         name: '#2 Poppin Pastrami',
-        ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
-        'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
-        'Red Onions', 'Banana Peppers']
+        description: ['French Roll, Bread White, American Cheese, BBQ Sauce, Honey Mustard, Spicy Mustard, Pastrami, Tomatoes, Pickles, Spinach, Red Onions, Banana Peppers, French Roll, Bread White, American Cheese, BBQ Sauce']
     },
     {
         name: '#3 Poppin Pastrami',
-        ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
-        'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
-        'Red Onions', 'Banana Peppers']
+        description: ['French Roll, Bread White, American Cheese, BBQ Sauce, Honey Mustard, Spicy Mustard, Pastrami, Tomatoes, Pickles, Spinach, Red Onions, Banana Peppers, French Roll, Bread White, American Cheese, BBQ Sauce']
     },
     {
         name: '#4 Poppin Pastrami',
-        ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
-        'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
-        'Red Onions', 'Banana Peppers']
+        description: ['French Roll, Bread White, American Cheese, BBQ Sauce, Honey Mustard, Spicy Mustard, Pastrami, Tomatoes, Pickles, Spinach, Red Onions, Banana Peppers, French Roll, Bread White, American Cheese, BBQ Sauce']
     },
     {
         name: '#5 Poppin Pastrami',
-        ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
-        'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
-        'Red Onions', 'Banana Peppers']
-    },
-    {
-        name: '#6 Poppin Pastrami',
-        ingredients: ['French Roll Bread', 'White American Cheese', 'BBQ Sauce',
-        'Honey Mustard', 'Spicy Mustard', 'Pastrami', 'Tomatoes', 'Pickles', 'Spinach',
-        'Red Onions', 'Banana Peppers']
+        description: ['French Roll, Bread White, American Cheese, BBQ Sauce, Honey Mustard, Spicy Mustard, Pastrami, Tomatoes, Pickles, Spinach, Red Onions, Banana Peppers, French Roll, Bread White, American Cheese, BBQ Sauce']
     }
 ]
 

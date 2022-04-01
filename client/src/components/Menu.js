@@ -21,7 +21,7 @@ const Item = (props) => {
     return <div>
         <strong>{props.data.name}</strong>
         <div>
-        {props.data.ingredients.join(', ')}
+        {props.data.description}
         </div>
     </div>
 }
