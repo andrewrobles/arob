@@ -21,7 +21,7 @@ function App() {
   }
 
   const getMenu = () => {
-    fetch('http://localhost:8000/api/menu/', {
+    fetch('http://localhost:8000/menu/', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
