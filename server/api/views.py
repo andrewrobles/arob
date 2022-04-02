@@ -7,7 +7,6 @@ def menu(request):
     return Response([
         {
             'name': item.name,
-            'price': item.price,
             'description': item.description
         } 
         for item in Item.objects.all()

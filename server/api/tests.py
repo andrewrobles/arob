@@ -6,8 +6,8 @@ from api.models import Item
 class TestApi(TestCase):
     def setUp(self):
         self.client = APIClient()
-        Item.objects.create(name='Toast', price=5, description='Bread & butter')
-        Item.objects.create(name='Milk', price=2)
+        Item.objects.create(name='Toast', description='Bread & butter')
+        Item.objects.create(name='Milk')
 
     def test_get_menu(self):
         actual = self.client.get('/menu/', format='json').data
@@ -15,12 +15,10 @@ class TestApi(TestCase):
             {
                 'name': 'Toast',
                 'description': 'Bread & butter',
-                'price': 5.0
             },
             {
                 'name': 'Milk',
                 'description': '',
-                'price': 2.0
             }
         ]
 

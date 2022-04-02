@@ -1,1 +1,0 @@
-sudo docker-compose run server python manage.py test $1

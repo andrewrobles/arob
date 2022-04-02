@@ -1,0 +1,63 @@
+[
+   {
+        "name": "Hamming It up", 
+        "description": "Wheat bread, cheddar, cheese, cajun mayo, yellow mustard, ham, tomatoes, cucumbers, pickles, lettuce, red onions."
+    },
+    {
+        "name": "Turkey Tussle",
+        "description": "Squaw with oats bread, swiss cheese, mayo, mustard, tomatoes, cucumbers, pickles, lettuce, red onions."
+    },
+    {
+        "name": "Italian Slammer", 
+        "description": "French roll bread, provolone, cheese, mayo, ham, salami, pepperoni, tomatoes, cucumbers, lettuce, red onions, banana peppers, bell peppers, oil & vinegar."
+    },
+    {
+        "name": "Pops Italian", 
+        "description": "Marbel rye bread, provolone cheese, havarti cheese, mayo, cajun mayo, honey mustard, pesto, ham, salami, peperonni, capicola, bacon romatoes, cucumbers, pickes, lettuce, spinach, red onions, bell peppers, banana peppers, avocado, olive tapenade."
+    },
+    {
+        "name": "Roast Beef Savory",   
+        "description": "Sourdough bread, swiss cheese, mayo, spicy mustard, roast beef, tomatoes, cucumbers, spinach, red onions, bell peppers."
+    },
+    {
+        "name": "Vegging It Out",
+        "description": "Wheat bread, provolone cheese, honey mustard, tomatoes, cucumbers, pickles, lettuce, spinach, red onions, bell peppers, banana pappers, olives, avocado."
+    },
+    {
+        "name": "Club Stacker",
+        "description": "Sweet french bread, provolone cheese, mayo, yellow mustard, ham, roast beef, turkey, tomatoes, cucumbers, pickles, lettuce, red onions, bell peppers, banana peppers."
+    },
+    {
+        "name": "Tuna Delight",
+        "description": "Whear bread, tuna salad, mayo, honey mustard, tomatoes, cucumbers, pickles, spinach, lettuce, red onions, sprouts."
+    },
+    {
+        "name": "Blazin Cajun",
+        "description": "Squaw with oats bread, pepper jack cheese, cajun mayo, honey mustard, cajun turkey, tomatoes, cucumbers, pickles, spinach, red onions, banana peppers."
+    },
+    {
+        "name": "Classic Pastrami",
+        "description": "French roll bread, white american cheese, yellow mustard, pastrami, pickles."
+    },
+    {
+        "name": "Poppin Pastrami",
+        "description": "French roll bread, white american cheese, BBQ sauce, honey mustard, spicy mustard, pastrami, tomatoes, pickles, spinach, red onions, banana peppers."
+    },
+    {
+        "name": "Western Chicken",
+        "description": "Sweet french bread, white american cheese, ranch, honey mustard, chicken, bacon, tomatoes, lettuce, avocado."
+    },
+    {
+        "name": "Chicken Salad Sandwhich",
+        "description": "Sweet french bread, provolone, honey mustard, chicken salad, tomatoes, cucumbers, spinach, red onions, banana peppers."
+    },
+    {
+        "name": "Half & Half",
+        "description": "French roll bread, sweet chili, honey mustard, 1/2 chicken salad, 1/2 tuna, tomatoes, cucumbers, spinach, red onions, banana peppers."
+    },
+    {
+        "name": "The Reuben",
+        "description": "Marble rye bread, swiss cheese, house sauce, sauerkraut, corn beef, toasted to perfection."
+    }
+]
+ 
