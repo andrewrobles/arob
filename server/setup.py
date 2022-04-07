@@ -13,20 +13,21 @@ def load_data():
             Item.objects.create(name=item['name'].title(), description=item['description'])
 
 def create_superuser():
-    username = 'admin'
-    password = '1234'
-    email = 'admin@x1.app'
+    if User.objects.count() == 0:
+        username = 'admin'
+        password = '1234'
+        email = 'admin@x1.app'
 
-    user = User(
-        username=username,
-        email=email
-    )
+        user = User(
+            username=username,
+            email=email
+        )
 
-    user.set_password(password)
-    user.is_superuser = True
-    user.is_staff = True
+        user.set_password(password)
+        user.is_superuser = True
+        user.is_staff = True
 
-    user.save()
+        user.save()
 
 load_data()
 create_superuser()
