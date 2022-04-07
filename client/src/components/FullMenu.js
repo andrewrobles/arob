@@ -12,9 +12,11 @@ export const FullMenu = (props) => {
     <div class="row">
       <div class="col-8">
         SANDWHICHES
+        {/* <ColoredLine color="#DCDCDC" /> */}
       </div>
       <div class="col">
         SALADS
+        {/* <ColoredLine color="#DCDCDC" /> */}
       </div>
     </div>
     <div class="row">
@@ -30,3 +32,14 @@ export const FullMenu = (props) => {
     </div>
   </div>
 }
+
+const ColoredLine = ({ color }) => (
+    <div
+      style={{
+        color,
+        backgroundColor: color,
+        height: 1
+      }}
+    />
+  );
+ 
