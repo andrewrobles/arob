@@ -35,35 +35,60 @@ function App() {
     },
     {
       "name": "#8 Tuna Delight",
-      "description": "Whear bread, tuna salad, mayo, honey mustard, tomatoes, cucumbers, pickles, spinach, lettuce, red onions, sprouts."
+      "description": "Wheat Bread, Tuna Salad, Mayo, Honey Mustard, Tomatoes, Cucumbers, Pickles, Spinach, Lettuce, Red Onions, Sprouts"
   },
   {
       "name": "#9 Blazin Cajun",
-      "description": "Squaw with oats bread, pepper jack cheese, cajun mayo, honey mustard, cajun turkey, tomatoes, cucumbers, pickles, spinach, red onions, banana peppers."
+      "description": "Squaw with Oats Bread, Pepper Jack Cheese, Cajun Mayo, Honey Mustard, Cajun Turkey, Tomatoes, Cucumbers, Pickles, Spinach, Red Onions, Banana Peppers"
   },
   {
       "name": "#10 Classic Pastrami",
-      "description": "French roll bread, white american cheese, yellow mustard, pastrami, pickles."
+      "description": "French Roll Bread, White American Cheese, Yellow Mustard, Pastrami, Pickles"
   },
   {
       "name": "#11 Poppin Pastrami",
-      "description": "French roll bread, white american cheese, BBQ sauce, honey mustard, spicy mustard, pastrami, tomatoes, pickles, spinach, red onions, banana peppers."
+      "description": "French Roll Bread, White American Cheese, BBQ Sauce, Honey Mustard, Spicy Mustard, Pastrami, Tomatoes, Pickles, Spinach, Red Onions, Banana Peppers"
   },
   {
       "name": "#12 Western Chicken",
-      "description": "Sweet french bread, white american cheese, ranch, honey mustard, chicken, bacon, tomatoes, lettuce, avocado."
+      "description": "Sweet French Bread, White American Cheese, Ranch, Honey Mustard, Chicken, Bacon, Tomatoes, Lettuce, Avocado"
   },
   {
       "name": "#13 Chicken Salad Sandwhich",
-      "description": "Sweet french bread, provolone, honey mustard, chicken salad, tomatoes, cucumbers, spinach, red onions, banana peppers."
+      "description": "Sweet French Bread, Provolone, Honey Mustard, Chicken Salad, Tomatoes, Cucumbers, Spinach, Red Onions, Banana Peppers"
   },
   {
       "name": "#14 Half & Half",
-      "description": "French roll bread, sweet chili, honey mustard, 1/2 chicken salad, 1/2 tuna, tomatoes, cucumbers, spinach, red onions, banana peppers."
+      "description": "French Roll Bread, Sweet Chili, Honey Mustard, 1/2 Chicken Salad, 1/2 Tuna, Tomatoes, Cucumbers, Spinach, Red Onions, Banana Peppers"
   },
   {
-      "name": "The Reuben",
-      "description": "Marble rye bread, swiss cheese, house sauce, sauerkraut, corn beef, toasted to perfection."
+      "name": "#15 The Reuben",
+      "description": "Marble Rye Bread, Swiss Cheese, House Sauce, Sauerkraut, Corn Beef, Toasted to Perfection"
+  },
+  {
+    "name": "The Works",
+    "description": "Turkey, Spring Mix, Bacon, Avocado, Cranberries, Walnuts, Apples, Cherry Tomatoes"
+  },
+  {
+    "name": "Tuna Salad",
+    "description": "Spring Mix, House Tuna, Cherry Tomatoes, Cucumbers, Red Onions"
+  },
+  {
+    "name": "Chicken Bacon Ranch",
+    "description": "Spring Mix, Chicken, Bacon, Cherry Tomatoes, Cucumbers, Bell Peppers, Red Onions"
+  },
+  {
+    "name": "Garden Salad",
+    "description": "Spring Mix, Avocado, Cherry Tomatoes, Cucumbers, Pickles, Red Onions, Bell Peppers, Sprouts, Banana Peppers"
+  },
+  {
+    "description": "Pesto, Olive Tapenade, Artichoke, Zucchini, Egg Plant, Habenero Peppers"
+  },
+  {
+    "description": "Avocado, Double Cheese"
+  },
+  {
+    "description": "Bacon, Double Meat"
   }
     ]}/>
 }

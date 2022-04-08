@@ -20,11 +20,9 @@ export const FullMenu = (props) => {
     <div className="row">
       <div className="col-8" style={{fontFamily: 'LucidaHandwriting', fontSize: '25px',}} >
         SANDWHICHES
-        {/* <ColoredLine color="#DCDCDC" /> */}
       </div>
       <div className="col" style={{fontFamily: 'LucidaHandwriting', fontSize: '25px'}}>
         SALADS
-        {/* <ColoredLine color="#DCDCDC" /> */}
       </div>
     </div>
     <div className="row">
@@ -35,7 +33,11 @@ export const FullMenu = (props) => {
         <MenuItems data={props.data.slice(7, 15)} />
       </div>
       <div className="col">
-        <MenuItems data={props.data.slice(7, 15)} />
+        <MenuItems data={props.data.slice(15, 19)} />
+        <div className="col" style={{fontFamily: 'LucidaHandwriting', fontSize: '25px'}}>
+        Add-Ons
+      </div>
+        <MenuItems data={props.data.slice(19, 23)} />
       </div>
     </div>
   </div>
