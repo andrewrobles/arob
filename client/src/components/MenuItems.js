@@ -15,7 +15,7 @@ const MenuItem = (props) => {
         backgroundColor: 'black',
         color: '#B49859',
         fontWeight: '500'
-    }} className={`mb-1 ${props.data.name ? "mb-1": "mb-3"}`}>
+    }} className={`mb-1 ${props.data.name ? 'mb-1' : 'mb-3'}`}>
         <div style={{fontSize: '18px'}}>{props.data.name ? props.data.name.toUpperCase(): ""}</div>
         <div style={{
             color: '#DCDCDC',
