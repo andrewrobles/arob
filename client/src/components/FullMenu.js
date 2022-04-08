@@ -1,6 +1,5 @@
 import { MenuItems } from '../components/MenuItems'
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 export const FullMenu = (props) => {
@@ -10,24 +9,33 @@ export const FullMenu = (props) => {
         fontWeight: '350'
     }}>
     <div class="row">
-      <div class="col-8">
+        <div class="col d-flex justify-content-center text-center" style={{
+            color: '#DCDCDC', 
+            fontFamily: 'LucidaHandwriting',
+            fontSize: '30px'
+            }}>
+        YOWAY SIGNATURES
+        </div>
+    </div>
+    <div className="row">
+      <div className="col-8" style={{fontFamily: 'LucidaHandwriting', fontSize: '25px',}} >
         SANDWHICHES
         {/* <ColoredLine color="#DCDCDC" /> */}
       </div>
-      <div class="col">
+      <div className="col" style={{fontFamily: 'LucidaHandwriting', fontSize: '25px'}}>
         SALADS
         {/* <ColoredLine color="#DCDCDC" /> */}
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        <MenuItems data={props.data} />
+    <div className="row">
+      <div className="col">
+        <MenuItems data={props.data.slice(0, 7)} />
       </div>
-      <div class="col">
-        <MenuItems data={props.data} />
+      <div className="col">
+        <MenuItems data={props.data.slice(7, 15)} />
       </div>
-      <div class="col">
-        <MenuItems data={props.data} />
+      <div className="col">
+        <MenuItems data={props.data.slice(7, 15)} />
       </div>
     </div>
   </div>

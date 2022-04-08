@@ -9,3 +9,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "LucidaHandwriting";
+  src: local("LucidaHandwriting"),
+    url("./fonts/LucidaHandwritingStdRg.TTF") format("truetype");
+}

@@ -4,13 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const MenuItems = (props) => {
     return <div>
-        <MenuItem data={props.data[0]}/>
-        <MenuItem data={props.data[1]}/>
-        <MenuItem data={props.data[2]}/>
-        <MenuItem data={props.data[3]}/>
-        <MenuItem data={props.data[4]}/>
-        <MenuItem data={props.data[5]}/>
-        <MenuItem data={props.data[6]}/>
+        {props.data.map(x => <MenuItem data={x}/>)}
     </div>
 }
 

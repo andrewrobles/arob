@@ -1,17 +1,17 @@
 version: "3.3"
    
 services:
-  server:
-    build: 
-      context: ./server
-    command: >
-      sh -c "python manage.py migrate &&
-             python manage.py shell < setup.py &&
-             python manage.py runserver 0.0.0.0:8000"
-    volumes:
-      - ./server:/code
-    ports:
-      - "8000:8000"
+  # server:
+  #   build: 
+  #     context: ./server
+  #   command: >
+  #     sh -c "python manage.py migrate &&
+  #            python manage.py shell < setup.py &&
+  #            python manage.py runserver 0.0.0.0:8000"
+  #   volumes:
+  #     - ./server:/code
+  #   ports:
+  #     - "8000:8000"
   client:
     build:
       context: ./client
@@ -21,12 +21,12 @@ services:
       - /app/node_modules
     ports:
       - 3000:3000
-  storybook:
-    build:
-      context: ./client
-    command: npm --prefix /app/ run storybook
-    volumes:
-      - ./client:/app
-      - /app/node_modules
-    ports:
-      - 6006:6006
+  # storybook:
+  #   build:
+  #     context: ./client
+  #   command: npm --prefix /app/ run storybook
+  #   volumes:
+  #     - ./client:/app
+  #     - /app/node_modules
+  #   ports:
+  #     - 6006:6006
