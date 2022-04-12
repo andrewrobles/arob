@@ -14,7 +14,7 @@ def load_data():
 
 def create_superuser():
     if User.objects.count() == 0:
-        username = 'admin'
+        username = 'andrew'
         password = '1234'
         email = 'admin@x1.app'
 

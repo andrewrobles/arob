@@ -12,21 +12,28 @@ services:
       - ./server:/code
     ports:
       - "8000:8000"
-  client:
-    build:
-      context: ./client
-    command: npm --prefix /app/ start
+  worker:
+    build: 
+      context: ./server
+    command: >
+      sh -c "python manage.py qcluster"
     volumes:
-      - ./client:/app
-      - /app/node_modules
-    ports:
-      - 3000:3000
-  storybook:
-    build:
-      context: ./client
-    command: npm --prefix /app/ run storybook
-    volumes:
-      - ./client:/app
-      - /app/node_modules
-    ports:
-      - 6006:6006
+      - ./server:/code
+  # client:
+  #   build:
+  #     context: ./client
+  #   command: npm --prefix /app/ start
+  #   volumes:
+  #     - ./client:/app
+  #     - /app/node_modules
+  #   ports:
+  #     - 3000:3000
+  # storybook:
+  #   build:
+  #     context: ./client
+  #   command: npm --prefix /app/ run storybook
+  #   volumes:
+  #     - ./client:/app
+  #     - /app/node_modules
+  #   ports:
+  #     - 6006:6006

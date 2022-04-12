@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'api',
     'rest_framework.authtoken',
+    'django_q'
 ]
 
 MIDDLEWARE = [
@@ -139,4 +140,15 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ]
+}
+
+# Task queue
+Q_CLUSTER = {
+    'name': 'DjangORM',
+    'workers': 1,
+    'timeout': 90,
+    'retry': 120,
+    'queue_limit': 50,
+    'bulk': 10,
+    'orm': 'default'
 }
