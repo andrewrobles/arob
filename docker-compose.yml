@@ -19,15 +19,15 @@ services:
       sh -c "python manage.py qcluster"
     volumes:
       - ./server:/code
-  # client:
-  #   build:
-  #     context: ./client
-  #   command: npm --prefix /app/ start
-  #   volumes:
-  #     - ./client:/app
-  #     - /app/node_modules
-  #   ports:
-  #     - 3000:3000
+  client:
+    build:
+      context: ./client
+    command: npm --prefix /app/ start
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
   # storybook:
   #   build:
   #     context: ./client

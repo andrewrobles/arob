@@ -37,10 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
-    'api',
     'rest_framework.authtoken',
-    'django_q'
+    'corsheaders',
+    'django_q',
+    'channels',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -142,7 +143,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-# Task queue
+# Auth code
 Q_CLUSTER = {
     'name': 'DjangORM',
     'workers': 1,
@@ -151,4 +152,15 @@ Q_CLUSTER = {
     'queue_limit': 50,
     'bulk': 10,
     'orm': 'default'
+}
+
+ASGI_APPLICATION = 'api.touring.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
 }
