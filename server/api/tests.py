@@ -23,3 +23,9 @@ class TestApi(TestCase):
         ]
 
         self.assertEqual(actual, expected)
+
+class TestTasks(TestCase):
+    def test_generate_auth_code(self):
+        from api.tasks import generate_auth_code
+        self.assertEqual(generate_auth_code(), '1')
+        self.assertEqual(generate_auth_code(), '2')
