@@ -9,3 +9,6 @@ class Item(models.Model):
 
 class AuthCode(models.Model):
     value = models.CharField(max_length=8)
+
+    def __str__(self):
+        return self.value
