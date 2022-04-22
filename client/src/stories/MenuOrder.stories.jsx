@@ -1,7 +1,7 @@
-import { Menu } from '../components/Menu'
+import { MenuOrder } from '../components/MenuOrder'
 
 export default {
-    component: Menu,
+    component: MenuOrder,
 }
 
 const Items = [
@@ -36,6 +36,6 @@ const Items = [
 ]
 
 
-export const Default = () => <Menu 
+export const Default = () => <MenuOrder
     items={Items}
 />

@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export const Menu = (props) => {
+export const MenuOrder = (props) => {
+    
     return <div>
         <List items={props.items}/>
         <div class="container">
@@ -15,7 +16,7 @@ export const Menu = (props) => {
 
 const List = (props) => {    
     return <div>
-            <div className={`card`}>
+            <div className={`card`} style={{marginBottom: '100px'}}>
             <ul className={`list-group list-group-flush`}>
                 {props.items.map((item, index) => <li key={index} className={`list-group-item`}>
                         <Item data={item}/>
